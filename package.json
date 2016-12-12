@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-digitalocean-merquililycony",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Crea la carpeta undefined",
   "main": "gitbook-start-digitalocean",
   "scripts": {
@@ -42,7 +42,7 @@
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2",
     "gulp-install": "^0.6.0",
-    "gulp-shell": "^0.5.2",   
+    "gulp-shell": "^0.5.2",
     "minimist": "^1.2.0",
     "node-libcurl": "^1.0.0",
     "octonode": "^0.7.6",
