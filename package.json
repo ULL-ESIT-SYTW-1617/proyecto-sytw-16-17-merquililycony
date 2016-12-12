@@ -1,0 +1,54 @@
+{
+  "name": "gitbook-start-digitalocean-merquililycony",
+  "version": "2.2.24",
+  "description": "Crea la carpeta undefined",
+  "main": "gitbook-start-digitalocean",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "^4.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony.git"
+  },
+  "author": "Merquis Cruz, Constanza León, E. Liliana Camacho",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Merquis",
+      "email": "alu0100536690@ull.edu.es"
+    },
+    {
+      "name": "Liliana",
+      "email": "alu0100762846@ull.edu.es"
+    },
+    {
+      "name": "Constanza",
+      "email": "alu0100673647@ull.edu.es"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony#readme",
+  "nombre_dir": " ",
+  "dependencies": {
+    "asyncawait": "^1.0.6",
+    "deasync": "^0.1.9",
+    "exec": "^0.2.1",
+    "fs-extra": "^0.30.0",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-install": "^0.6.0",
+    "gulp-shell": "^0.5.2",   
+    "minimist": "^1.2.0",
+    "node-libcurl": "^1.0.0",
+    "octonode": "^0.7.6",
+    "path": "^0.12.7",
+    "readline-sync": "^1.4.5",
+    "replace": "^0.3.0",
+    "simple-git": "^1.59.0"
+  }
+}
