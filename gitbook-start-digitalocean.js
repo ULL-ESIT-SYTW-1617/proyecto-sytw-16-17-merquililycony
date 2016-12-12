@@ -45,8 +45,8 @@ console.log("Usuario: "+usuario_tok);
 console.log("Token: "+token);
 
 var json = JSON.parse(fs.readFileSync('./package.json','utf8'));
-var dir = json.nombre_dir; //Utilizar el que está comentado arriba cuando instalemos los paquetes.
-
+var dir = json.Directorio.nombre_dir; //Utilizar el que está comentado arriba cuando instalemos los paquetes.
+console.log("Directorio actual: "+dir);
 exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');//URL REMOTA
 
 //CREAR REPOSITORIO REMOTO EN GITHUB CON EL TOKEN
