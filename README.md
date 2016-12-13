@@ -6,6 +6,7 @@
 *El objetivo de esta práctica es extender el package NodeJS publicado en npm en una práctica anterior con una nueva*
 *funcionalidad que permita que los usuarios realizar un despliegue automático en el servidor de Digital Ocean*
 
+**NOTA: Si ya tienes una máquina en Digital Ocean con NODE y NPM instalados, puedes ir al PASO 5 directamente.**
 # Paso 1: Creando una cuenta en Digital Ocean
 
 Accedemos a [https://www.digitalocean.com/](https://www.digitalocean.com/) y nos creamos una cuenta. Una vez dentro hacemos click en **DROPLETS** para crear la configuración de la máquina.
