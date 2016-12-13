@@ -15,14 +15,14 @@ Elegimos una distribución de linux, en este caso se ha utilizado UBUNTU, a cont
 
 # Paso 2: Vinculando un nombre de dominio a nuestra máquina de Digital Ocean
 
-Este paso es opcional así que si no deseas hacerlo ve directo al Paso 3.
+**Este paso es opcional** así que si no deseas hacerlo ve directo al **Paso 3**.
 Se vinculará un nombre de dominio a la IP de la máquina que acabamos de crear en Digital Ocean, de esta forma podemos acceder al libro tecleando el nombre del dominio, pero si deseas puedes acceder con tu dirección IP pública.
 
-Para esto, dentro de nuestra cuenta de Digital Ocean vamos a Droplets, More, add a domain y escribimos el nombre del dominio que deseamos vincular.
+Para esto, dentro de nuestra cuenta de Digital Ocean vamos a **Droplets, More, add a domain** y escribimos el nombre del dominio que deseamos vincular.
 
 ![imagen](./images/ima2.jpg)
 
- Una vez añadido copiamos los NS, vamos al sitio web donde tenemos registrado nuestro dominio y lo pegamos en la zona de DNS, en mi caso he utilizado dondominio.com. Debes tener en cuenta que este proceso puede tardar hasta 24 horas ya que las DNS deben propagarse por los diversos servidores en todo el mundo.
+ Una vez añadido copiamos los NS, vamos al sitio web donde tenemos registrado nuestro dominio y lo pegamos en la **zona de DNS**, en mi caso he utilizado **dondominio.com**. Debes tener en cuenta que este proceso puede tardar hasta 24 horas ya que las DNS deben propagarse por los diversos servidores en todo el mundo.
 
 ![imagen](./images/ima4.jpg)
 
@@ -33,7 +33,7 @@ Existen diversos portales en Internet como [https://www.whatsmydns.net/](https:/
 # Paso 3: Acceso SSH a Digital Ocean
 
 Al crear la configuración de nuestra máquina recibiremos un email con los datos de acceso.
-Abrimos una consola y ejecutamos shh root@IP , en nuestro caso sería:
+Abrimos una consola y ejecutamos **shh root@IP** , en nuestro caso sería:
 
 
 ```bash
@@ -41,7 +41,7 @@ ssh root@178.62.30.50
 ```
 
 Introducimos la contraseña que nos ha llegado al email, la confirmamos y luego nos pedirá nuestra nueva contraseña.
-El siguiente paso es configurar una clave ssh para poder acceder automáticamente a nuestro servidor sin loguearnos. Nos colocamos en el directorio ~/.ssh y en caso de no tener ninguna clave ejecutamos el siguiente comando:
+El siguiente paso es configurar una clave ssh para poder acceder automáticamente a nuestro servidor sin loguearnos. Nos colocamos en el directorio **~/.ssh** y en caso de no tener ninguna clave ejecutamos el siguiente comando:
 
 
 ```bash
@@ -50,7 +50,7 @@ ssh-keygen -t rsa
 
 Ahora vamos a copiar la información de nuestra clave pública, en mi caso se llama id_dsa.pub a nuestro servidor remoto en ~/.ssh/authorized_keys ,esto lo podemos hacer con:
 
-NOTA IMPORTANTE: Para que la clave funcione correctamente en el servidor remoto, ~/.ssh/authorized_keys debe tener unos permisos concretos, así que dentro de nuestro servidor remoto tecleamos:
+**NOTA IMPORTANTE:** Para que la clave funcione correctamente en el servidor remoto, **~/.ssh/authorized_keys** debe tener unos permisos concretos, así que dentro de nuestro servidor remoto tecleamos:
 
 
 ```bash
@@ -67,7 +67,7 @@ ssh-copy-id -i ~/.ssh/id_dsa.pub root@178.6.30.50
 
 # Paso 4: Preparando la máquina remota para correr un servidor Express
 
-Instalamos NODEJS y NPM en nuestro servidor remoto
+Instalamos **NODEJS** y **NPM** en nuestro servidor remoto
 
 ```bash
 sudo apt-get install nodejs
