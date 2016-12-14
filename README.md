@@ -63,7 +63,7 @@ exit
 Una vez hecho esto podemos realizar la copia con el siguiente comando:
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_dsa.pub root@178.6.30.50
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.6.30.50
 ```
 
 # Paso 4: Preparando la máquina remota para correr un servidor Express
