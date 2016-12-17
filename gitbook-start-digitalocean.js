@@ -15,16 +15,17 @@ const basePath = process.cwd();
 
 /////////////////////////////////// Copia ficheros del template al libro ////////////////////
 
-fs.copy(path.join(__dirname, './template', 'template') , path.join(basePath, dir ,'template'), function(err){
+fe.copy(path.join(__dirname, '/', 'template') , path.join('./','template'), function(err){
     if(err){
       return console.error(err);
     }
 });
-///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
-fs.move('./template/gulpfile.js', path.join(basePath, dir ,'gulpfile.js'), function (err) {
-  if (err) return console.error(err);
+// console.log(jso)
+// ///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
+// fe.copy(path.join('../../'+ json.Directorio.nombre_dir+'/template','gulpfile.js'), path.join(json.Directorio.nombre_dir,'gulpfile.js'), function (err) {
+//   if (err) return console.error(err);
   
-});
+// });
 
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
 function checkDirectorySync(directory) {
@@ -52,18 +53,18 @@ function checkDirectorySync(directory) {
 checkDirectorySync("./.gitbook-start");
 
 /////////////////////////////////// //COGER TOKEN//////////////////////////////////////////
-var json_token = JSON.parse(fs.readFileSync('.gitbook-start/config.json','utf8'))
+var json_token = JSON.parse(fs.readFileSync('../../.gitbook-start/config.json','utf8'));
 
 var token = json_token.token;
 var usuario_tok = json_token.app.name;
 console.log("Usuario: "+usuario_tok);
 console.log("Token: "+token);
-
-var json = JSON.parse(fs.readFileSync('./package.json','utf8'));
+/*
+var json = JSON.parse(fs.readFileSync('../../package.json','utf8'));
 var dir = json.Directorio.nombre_dir; //Utilizar el que está comentado arriba cuando instalemos los paquetes.
 console.log("Directorio actual: "+dir);
 exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');//URL REMOTA
-
+*/
 //CREAR REPOSITORIO REMOTO EN GITHUB CON EL TOKEN
 var pwd = function(pwd, callback){
 
