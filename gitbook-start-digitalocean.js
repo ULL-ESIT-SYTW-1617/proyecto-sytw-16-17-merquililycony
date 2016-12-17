@@ -75,7 +75,7 @@ var pwd = function(pwd, callback){
 
 var getPwd = function(repo_name){
   exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+repo_name+'"}\'');
-  exec('cd template; gulp deploy');
+//  exec('cd template; gulp deploy');
 
   // exec('git remote add origin git@github.com:'+usuario+'/'+repo_name+'.git; git push -u origin master');
   //   exec('git init; git add README.md; git commit -m "first commit; git remote add origin git@github.com:'+usuario+'/'+repo_name+'.git; git push -u origin master');
