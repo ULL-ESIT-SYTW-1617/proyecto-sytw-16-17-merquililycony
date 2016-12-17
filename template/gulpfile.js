@@ -75,7 +75,7 @@ gulp.task('crear-repo', function() {
 
 gulp.task('deploy-digitalocean',function(){
 
-    client.scp('gh-pages/', 'root:esperanza2016@178.62.123.244:/home/src/sytw/gh-pages', function(err) {});
+    client.scp('../gh-pages/', 'root:esperanza2016@178.62.123.244:/home/src/sytw/gh-pages', function(err) {});
     client.scp('./template/app.js', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
     client.scp('./template/package.json', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
     ssh_exec('cd /home/src/sytw/; npm install; node app.js', 'root@178.62.123.244').pipe(process.stdout);

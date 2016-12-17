@@ -33,8 +33,6 @@ function checkDirectorySync(directory) {
     httpServer.listen(8080);
   }
 
-
-
-
 }
 checkDirectorySync("./tls");
+

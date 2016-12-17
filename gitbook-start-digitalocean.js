@@ -15,23 +15,17 @@ const basePath = process.cwd();
 
 /////////////////////////////////// Copia ficheros del template al libro ////////////////////
 
-<<<<<<< HEAD
-fs.copy(path.join(__dirname, './', 'template') , path.join(basePath, dir ,'template'), function(err){
-=======
 fe.copy(path.join(__dirname, '/', 'template') , path.join('./','template'), function(err){
->>>>>>> a770a5d7b0339d279c89e7abdec9c9eefb4b6f9a
     if(err){
       return console.error(err);
     }
 });
-<<<<<<< HEAD
-///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
-fs.move('./template/gulpfile.js', path.join(basePath, dir ,'gulpfile.js'), function (err) {
-  if (err) return console.error(err);
 
+fe.copy(path.join(__dirname, '/template', 'gulpfile.js') , path.join('./','gulpfile.js'), function(err){
+    if(err){
+      return console.error(err);
+    }
 });
-=======
->>>>>>> a770a5d7b0339d279c89e7abdec9c9eefb4b6f9a
 
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
 function checkDirectorySync(directory) {
@@ -59,7 +53,7 @@ function checkDirectorySync(directory) {
 checkDirectorySync("./.gitbook-start");
 
 /////////////////////////////////// //COGER TOKEN//////////////////////////////////////////
-var json_token = JSON.parse(fs.readFileSync('../../.gitbook-start/config.json','utf8'));
+var json_token = JSON.parse(fs.readFileSync('./.gitbook-start/config.json','utf8'));
 
 var token = json_token.token;
 var usuario_tok = json_token.app.name;
