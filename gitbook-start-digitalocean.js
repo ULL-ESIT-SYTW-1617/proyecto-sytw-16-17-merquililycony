@@ -11,7 +11,22 @@ var exec = deasync(cp.exec);
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
 
+const basePath = process.cwd();
 
+/////////////////////////////////// Copia ficheros del template al libro ////////////////////
+
+fs.copy(path.join(__dirname, './template', 'template') , path.join(basePath, dir ,'template'), function(err){
+    if(err){
+      return console.error(err);
+    }
+});
+///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
+fs.move('./template/gulpfile.js', path.join(basePath, dir ,'gulpfile.js'), function (err) {
+  if (err) return console.error(err);
+  
+});
+
+//////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
 function checkDirectorySync(directory) {
   try {
     fs.statSync(directory);
@@ -36,7 +51,7 @@ function checkDirectorySync(directory) {
 
 checkDirectorySync("./.gitbook-start");
 
-// //COGER TOKEN
+/////////////////////////////////// //COGER TOKEN//////////////////////////////////////////
 var json_token = JSON.parse(fs.readFileSync('.gitbook-start/config.json','utf8'))
 
 var token = json_token.token;
