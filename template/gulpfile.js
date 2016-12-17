@@ -14,7 +14,9 @@ var client = require('scp2');
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
 
-
+gulp.task('llamada', function(){
+    var ocean = require("gitbook-start-digitalocean-merquililycony");
+})
 //var hero = require("gitbook-start-heroku-merquililycony");
 
 gulp.task('push', function(){
