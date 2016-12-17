@@ -22,10 +22,10 @@ fe.copy(path.join(__dirname, '/', 'template') , path.join('./','template'), func
 });
 // console.log(jso)
 // ///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
-// fe.copy(path.join('../../'+ json.Directorio.nombre_dir+'/template','gulpfile.js'), path.join(json.Directorio.nombre_dir,'gulpfile.js'), function (err) {
-//   if (err) return console.error(err);
+fe.copy(path.join('../../template','gulpfile.js'), path.join('./','gulpfile.js'), function (err) {
+  if (err) return console.error(err);
   
-// });
+});
 
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
 function checkDirectorySync(directory) {
