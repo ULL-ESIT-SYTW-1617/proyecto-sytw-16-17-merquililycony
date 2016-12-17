@@ -89,7 +89,7 @@ gulp deploy-digitalocean
 ```
 Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean ó el nombre de dominio en caso de haber realizado el Paso 2.
 
-[http://178.62.30.50:8080](http://178.62.123.244:8080)
+[http://178.62.123.244:8080](http://178.62.123.244:8080)
 
 [https://equivocateyaprende.com](https://equivocateyaprende.com)
 
