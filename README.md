@@ -91,7 +91,7 @@ Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nues
 
 [http://178.62.123.244:8080](http://178.62.123.244:8080)
 
-[https://equivocateyaprende.com](https://equivocateyaprende.com)
+[https://equivocateyaprende.es](https://equivocateyaprende.es)
 
 ## Enlaces :
 
