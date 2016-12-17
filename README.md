@@ -4,9 +4,8 @@
 
 # Objetivo:
 *El objetivo de esta práctica es extender el package NodeJS publicado en npm en una práctica anterior con una nueva*
-*funcionalidad que permita que los usuarios realizar un despliegue automático en el servidor de Digital Ocean*
+*funcionalidad que permita que los usuarios realizar un despliegue automático en el servidor de Digital Ocean utilizando un dominio con certificado **SSL Let's Encrypt**
 
-**NOTA: Si ya tienes una máquina en Digital Ocean con NODE y NPM instalados, puedes ir al PASO 5 directamente.**
 # Paso 1: Creando una cuenta en Digital Ocean
 
 Accedemos a [https://www.digitalocean.com/](https://www.digitalocean.com/) y nos creamos una cuenta. Una vez dentro hacemos click en **DROPLETS** para crear la configuración de la máquina.
@@ -16,7 +15,6 @@ Elegimos una distribución de linux, en este caso se ha utilizado UBUNTU, a cont
 
 # Paso 2: Vinculando un nombre de dominio a nuestra máquina de Digital Ocean
 
-**Este paso es opcional** así que si no deseas hacerlo ve directo al **Paso 3**.
 Se vinculará un nombre de dominio a la IP de la máquina que acabamos de crear en Digital Ocean, de esta forma podemos acceder al libro tecleando el nombre del dominio, pero si deseas puedes acceder con tu dirección IP pública.
 
 Para esto, dentro de nuestra cuenta de Digital Ocean vamos a **Droplets, More, add a domain** y escribimos el nombre del dominio que deseamos vincular.
@@ -76,7 +74,21 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
 ```
 
-# Paso 5: Crear y desplegar el libro.
+# Paso 5: Generar un certificado SSL con Let's Encrypt.
+
+Comenzamos clonando el repositorio de **Let's Encrypt** , nos metemos dentro del mismo y ejecutamos el siguiente comando donde **example.com** será el nombre del dominio que queremos generar el certificado SSL. Por último y para mayor comodidad, crearemos un enlace simbólico de **cert.pem y key.pem** que por defecto se generan en el directorio **/etc/letsencrypt/live/example.com**
+
+
+```bash
+git clone https://github.com/letsencrypt/letsencrypt
+cd letsencrypt
+sudo -H ./letsencrypt-auto certonly --standalone --email info@example.com -d example.com
+cd.. ; mkdir lts ; cd lts
+ln -s /etc/letsencrypt/live/example.com/fullchain.pem cert.pem
+ln -s /etc/letsencrypt/live/example.com/privkey.pem key.pem
+```
+
+# Paso 6: Crear y desplegar el libro.
 
 ```bash
 npm install -g nueva-funcionalidad-para-el-paquete-npm-merquililycony
@@ -87,7 +99,8 @@ npm install --save gitbook-start-digitalocean-merquililycony
 gulp deploy
 gulp deploy-digitalocean
 ```
-Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean ó el nombre de dominio en caso de haber realizado el Paso 2.
+
+Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean ó el nombre de dominio. El servidor está corriendo en el puerto **8080 con http** y en el **puerto 443 con https**.
 
 [http://178.62.123.244:8080](http://178.62.123.244:8080)
 
