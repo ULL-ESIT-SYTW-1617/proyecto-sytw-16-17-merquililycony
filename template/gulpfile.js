@@ -14,7 +14,9 @@ var client = require('scp2');
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
 
-
+gulp.task('llamada', function(){
+    var ocean = require("gitbook-start-digitalocean-merquililycony");
+})
 //var hero = require("gitbook-start-heroku-merquililycony");
 
 gulp.task('push', function(){
@@ -73,20 +75,11 @@ gulp.task('crear-repo', function() {
 
 gulp.task('deploy-digitalocean',function(){
 
-    client.scp('gh-pages/', 'root:esperanza2016@178.62.30.50:/home/src/sytw/gh-pages', function(err) {});
-    client.scp('app.js', 'root:esperanza2016@178.62.30.50:/home/src/sytw/', function(err) {});
-    client.scp('package.json', 'root:esperanza2016@178.62.30.50:/home/src/sytw/', function(err) {});
-    ssh_exec('cd /home/src/sytw/; npm install; node app.js', 'root@178.62.30.50').pipe(process.stdout);
+    client.scp('gh-pages/', 'root:esperanza2016@178.62.123.244:/home/src/sytw/gh-pages', function(err) {});
+    client.scp('./template/app.js', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
+    client.scp('./template/package.json', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
+    ssh_exec('cd /home/src/sytw/; npm install; node app.js', 'root@178.62.123.244').pipe(process.stdout);
 
 
 });
 
-// gulp.task('deploy-digitalocean',function(){
-
-//     client.scp('gh-pages/', 'root:esperanza2016@178.62.30.50:/home/src/sytw/gh-pages', function(err) {});
-//     client.scp('app.js', 'root:esperanza2016@178.62.30.50:/home/src/sytw/', function(err) {});
-//   //  client.scp('package.json', 'root:esperanza2016@178.62.30.50:/home/src/sytw/', function(err) {});
-//     ssh_exec('cd /home/src/sytw/; npm install express; npm install express-ejs-layouts; node app.js', 'root@178.62.30.50').pipe(process.stdout);
-
-
-// });

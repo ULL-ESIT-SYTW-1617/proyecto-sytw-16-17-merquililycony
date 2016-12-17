@@ -1,5 +1,5 @@
 {
-  "name": "Despliegue Digital Ocean",
+  "name": "Despliegue_Digital_Ocean",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -14,7 +14,8 @@
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "https": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "ssh-exec": "^2.0.0"
   }
 }
 

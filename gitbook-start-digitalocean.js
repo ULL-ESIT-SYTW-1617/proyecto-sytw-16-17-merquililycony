@@ -15,7 +15,7 @@ const basePath = process.cwd();
 
 /////////////////////////////////// Copia ficheros del template al libro ////////////////////
 
-fs.copy(path.join(__dirname, './template', 'template') , path.join(basePath, dir ,'template'), function(err){
+fs.copy(path.join(__dirname, './', 'template') , path.join(basePath, dir ,'template'), function(err){
     if(err){
       return console.error(err);
     }
@@ -23,7 +23,7 @@ fs.copy(path.join(__dirname, './template', 'template') , path.join(basePath, dir
 ///////////////////// Mueve gulpfile del template a la carpeta actual ///////////////
 fs.move('./template/gulpfile.js', path.join(basePath, dir ,'gulpfile.js'), function (err) {
   if (err) return console.error(err);
-  
+
 });
 
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
