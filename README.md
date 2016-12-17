@@ -42,14 +42,7 @@ ssh root@178.62.30.50
 ```
 
 Introducimos la contraseña que nos ha llegado al email, la confirmamos y luego nos pedirá nuestra nueva contraseña.
-El siguiente paso es configurar una clave ssh para poder acceder automáticamente a nuestro servidor sin loguearnos. Nos colocamos en el directorio **~/.ssh** y en caso de no tener ninguna clave ejecutamos el siguiente comando:
-
-
-```bash
-ssh-keygen -t rsa
-```
-
-Ahora vamos a copiar la información de nuestra clave pública, en mi caso se llama id_dsa.pub a nuestro servidor remoto en ~/.ssh/authorized_keys ,esto lo podemos hacer con:
+El siguiente paso es configurar una clave ssh para poder acceder automáticamente a nuestro servidor sin loguearnos. 
 
 **NOTA IMPORTANTE:** Para que la clave funcione correctamente en el servidor remoto, **~/.ssh/authorized_keys** debe tener unos permisos concretos, así que dentro de nuestro servidor remoto tecleamos:
 
@@ -60,10 +53,17 @@ chmod 0600 $HOME/.ssh/authorized_keys
 exit
 ```
 
-Una vez hecho esto podemos realizar la copia con el siguiente comando:
+Ahora vamos a nuestro servidor local al directorio **~/.ssh** y en caso de no tener ninguna clave ejecutamos el siguiente comando:
+
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.6.30.50
+ssh-keygen -t rsa
+```
+
+Lo siguiente es copiar la información de nuestra clave pública de la máquina local a nuestro servidor remoto, en este ejemplo copiaremos la información de **id_dsa.pub** que se encuentra en la máquina local al fichero **~/.ssh/authorized_keys** de la máquina remota. Esto lo podemos hacer con **ssh-copy-id -i ~/.ssh/clave_rsa.pub usuario@IP** donde usuario e IP son los datos de la máquina remota.
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.62.30.50
 ```
 
 # Paso 4: Preparando la máquina remota para correr un servidor Express
@@ -71,8 +71,9 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.6.30.50
 Instalamos **NODEJS** y **NPM** en nuestro servidor remoto
 
 ```bash
-sudo apt-get install nodejs
-sudo apt-get install npm
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
 ```
 
 # Paso 5: Crear y desplegar el libro.
