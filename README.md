@@ -38,7 +38,7 @@ Abrimos una consola y ejecutamos **shh root@IP** , en nuestro caso sería:
 
 
 ```bash
-ssh root@178.62.30.50
+ssh root@178.62.123.244
 ```
 
 Introducimos la contraseña que nos ha llegado al email, la confirmamos y luego nos pedirá nuestra nueva contraseña.
@@ -63,7 +63,7 @@ ssh-keygen -t rsa
 Lo siguiente es copiar la información de nuestra clave pública de la máquina local a nuestro servidor remoto, en este ejemplo copiaremos la información de **id_dsa.pub** que se encuentra en la máquina local al fichero **~/.ssh/authorized_keys** de la máquina remota. Esto lo podemos hacer con **ssh-copy-id -i ~/.ssh/clave_rsa.pub usuario@IP** donde usuario e IP son los datos de la máquina remota.
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.62.30.50
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@178.62.123.244
 ```
 
 # Paso 4: Preparando la máquina remota para correr un servidor Express
@@ -89,7 +89,7 @@ gulp deploy-digitalocean
 ```
 Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean ó el nombre de dominio en caso de haber realizado el Paso 2.
 
-[http://178.62.30.50:8080](http://178.62.30.50:8080)
+[http://178.62.30.50:8080](http://178.62.123.244:8080)
 
 [https://equivocateyaprende.com](https://equivocateyaprende.com)
 
