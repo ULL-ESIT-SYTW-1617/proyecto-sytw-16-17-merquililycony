@@ -14,7 +14,7 @@ var client = require('scp2');
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
 
-gulp.task('llamada', function(){
+gulp.task('paquete-ocean', function(){
     var ocean = require("gitbook-start-digitalocean-merquililycony");
 })
 //var hero = require("gitbook-start-heroku-merquililycony");
@@ -90,3 +90,4 @@ gulp.task('run-server',function(){
   ssh_exec('cd /home/src/sytw/; node app.js', 'root@178.62.123.244').pipe(process.stdout);
 });
 
+gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
