@@ -76,10 +76,12 @@ sudo apt-get install -y build-essential
 
 # Paso 5: Generar un certificado SSL con Let's Encrypt.
 
-Comenzamos clonando el repositorio de **Let's Encrypt** , nos metemos dentro del mismo y ejecutamos el siguiente comando donde **example.com** será el nombre del dominio que queremos generar el certificado SSL. Por último y para mayor comodidad, crearemos un enlace simbólico de **cert.pem y key.pem** que por defecto se generan en el directorio **/etc/letsencrypt/live/example.com**
+Comenzamos creando el directorio **/home/src/sytw** que es donde por defecto se desplegará nuestro libro de gitbook y a continuación clonamos el repositorio de **Let's Encrypt** , nos metemos dentro del mismo y ejecutamos el siguiente comando, donde **example.com** será el nombre del dominio al que le vamos a generar el certificado SSL.
+Por último y para mayor comodidad, crearemos un enlace simbólico de **cert.pem y key.pem** que por defecto están en **/etc/letsencrypt/live/example.com** y lo guardaremos en **/home/src/sytw/lts** 
 
 
 ```bash
+cd /home/src/sytw
 git clone https://github.com/letsencrypt/letsencrypt
 cd letsencrypt
 sudo -H ./letsencrypt-auto certonly --standalone --email info@example.com -d example.com
