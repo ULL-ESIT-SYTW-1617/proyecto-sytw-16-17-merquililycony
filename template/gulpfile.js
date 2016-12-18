@@ -90,4 +90,6 @@ gulp.task('run-server',function(){
   ssh_exec('cd /home/src/sytw/; node app.js', 'root@178.62.123.244').pipe(process.stdout);
 });
 
-gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
+//gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
+
+
