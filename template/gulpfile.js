@@ -1,22 +1,47 @@
 /*
 * Dependencias
 */
+var GulpSSH = require('gulp-ssh');
 var gulp = require('gulp');
 var shell = require('gulp-shell');
 var install = require('gulp-install');
 var path = require('path');
 var json = require(path.join(__dirname,'package.json'));
 var git = require('simple-git');
-var fs = require('fs-extra');
+var fs = require('fs');
+var fe = require('fs-extra');
 var exec = require('child_process').exec;
 var ssh_exec = require('ssh-exec');
 var client = require('scp2');
+var Client = require('scp2').Client;
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
+
+var config = {
+  host: '178.62.123.244',
+  port: 22,
+  username: 'root',
+  privateKey: fs.readFileSync('/home/ubuntu/.ssh/id_rsa')
+}
+
+var gulpSSH = new GulpSSH({
+  ignoreErrors: false,
+  sshConfig: config
+})
+
+
 
 var host ="178.62.123.244";
 var username ="root";
 var password = "esperanza2016";
+var privateKey = fs.readFileSync('/home/ubuntu/.ssh/id_rsa');
+
+client.defaults({
+    port: 22,
+    host: '178.62.123.244',
+    username: 'root',
+    // password: 'password', (accepts password also)
+});
 
 gulp.task('paquete-ocean', function(){
     var ocean = require("gitbook-start-digitalocean-merquililycony");
@@ -25,7 +50,7 @@ gulp.task('paquete-ocean', function(){
 
 gulp.task('push', function(){
 
-    if (!fs.existsSync(path.join(__dirname, '.git'))){
+    if (!fe.existsSync(path.join(__dirname, '.git'))){
       git()
         .init()
         .add('./*')
@@ -76,22 +101,18 @@ gulp.task('crear-repo', function() {
 });
 
 
-
 gulp.task('deploy-digitalocean',function(){
 
+  //  ssh_exec('scp -C -i '+privateKey+' -r /gh-pages/ '+username+'@'+host+':/home/src/sytw/gh-pages/');
     client.scp('gh-pages/', username+':'+password+'@'+host+':/home/src/sytw/gh-pages/', function(err) {});
     client.scp('./template/app.js', username+':'+password+'@'+host+':/home/src/sytw/', function(err) {});
     client.scp('./template/package.json', username+':'+password+'@'+host+':/home/src/sytw/', function(err) {});
 
 });
-gulp.task('instalar-dependencias',function(){
 
-    ssh_exec('cd /home/src/sytw/; npm install', username+'@'+host).pipe(process.stdout);
-
-});
-gulp.task('run-server',function(){
-
-  ssh_exec('cd /home/src/sytw/; node app.js', username+'@'+host).pipe(process.stdout);
+gulp.task('run-server', function () {
+  return gulpSSH
+    .shell(['cd /home/src/sytw/', 'npm install', 'node app.js &'], {filePath: 'shell.log'})
+    .pipe(gulp.dest('logs'))
 });
 
-//gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
