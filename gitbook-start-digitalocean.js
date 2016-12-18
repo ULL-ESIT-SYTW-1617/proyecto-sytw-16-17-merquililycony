@@ -10,23 +10,22 @@ var deasync = require('deasync');
 var exec = deasync(cp.exec);
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
-
 const basePath = process.cwd();
 
 /////////////////////////////////// Copia ficheros del template al libro ////////////////////
-
 fe.copy(path.join(__dirname, '/', 'template') , path.join('./','template'), function(err){
-    if(err){
-      return console.error(err);
-    }
+  if(err){
+    return console.error(err);
+  }
 });
 
 fe.copy(path.join(__dirname, '/template', 'gulpfile.js') , path.join('./','gulpfile.js'), function(err){
-    if(err){
-      return console.error(err);
-    }
+  if(err){
+    return console.error(err);
+  }
 });
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
+
 function checkDirectorySync(directory) {
   try {
     fs.statSync(directory);
@@ -36,50 +35,31 @@ function checkDirectorySync(directory) {
     var usuario = readlineSync.question('Introduzca el USUARIO de github: ');
     var password = readlineSync.question('Introduzca su contraseña de github: ', { hideEchoBack: true });
 
-    fe.mkdirs('.gitbook-start', function (err) {
+    fe.mkdirs(directory, function (err) {
       if (err) return console.error(err)
-      console.log("success!")
+      console.log("Directorio creado con éxito!!")
     })
 
     var args = " -u "+usuario+":"+password+" -d ";
     var args1 = '\'{"scopes": ["repo", "user"], "note":"'+usuario+'"}\'';
     var args2 = " https://api.github.com/authorizations >> .gitbook-start/config.json";
     var crear_token = args + args1 + args2;
-    exec('curl ' + crear_token);
+    exec('curl ' + crear_token); //Crea el token de github
   }
 }
-
 checkDirectorySync("./.gitbook-start");
 
 /////////////////////////////////// //COGER TOKEN//////////////////////////////////////////
 var json_token = JSON.parse(fs.readFileSync('./.gitbook-start/config.json','utf8'));
+var token = json_token.token; //Token github
+var usuario_tok = json_token.app.name; //Usuario github
 
-var token = json_token.token;
-var usuario_tok = json_token.app.name;
-// console.log("Usuario: "+usuario_tok);
-// console.log("Token: "+token);
-/*
-var json = JSON.parse(fs.readFileSync('../../package.json','utf8'));
-var dir = json.Directorio.nombre_dir; //Utilizar el que está comentado arriba cuando instalemos los paquetes.
-console.log("Directorio actual: "+dir);
-exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');//URL REMOTA
-*/
+var json = JSON.parse(fs.readFileSync('./package.json','utf8'));
+var dir = json.Directorio.nombre_dir; //nombre directorio del libro
+
+//Guarda URL remota en el fichero pacjage.json
+exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');
+
 //CREAR REPOSITORIO REMOTO EN GITHUB CON EL TOKEN
-var pwd = function(pwd, callback){
-
-  var repo_name = path.basename(exec(pwd)); //Obtiene el directorio actual
-  repo_name = repo_name.split("\n").join("");//Elimina salto de carro de directorio actual
-
-  callback(repo_name);
-};
-
-var getPwd = function(repo_name){
-  exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+repo_name+'"}\'');
-//  exec('cd template; gulp deploy');
-
-  // exec('git remote add origin git@github.com:'+usuario+'/'+repo_name+'.git; git push -u origin master');
-  //   exec('git init; git add README.md; git commit -m "first commit; git remote add origin git@github.com:'+usuario+'/'+repo_name+'.git; git push -u origin master');
-
-}
-
-pwd("pwd", getPwd);
+exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+dir+'"}\'');
+exec('git remote set-url origin git@github.com:'+usuario_tok+'/'+dir+'.git; git push -u origin master');
