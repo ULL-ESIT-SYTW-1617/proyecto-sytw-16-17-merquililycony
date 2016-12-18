@@ -93,13 +93,35 @@ ln -s /etc/letsencrypt/live/example.com/privkey.pem key.pem
 # Paso 6: Crear y desplegar el libro.
 
 ```bash
-npm install -g nueva-funcionalidad-para-el-paquete-npm-merquililycony
+npm install -g nuevo-libro-merquililycony
+```
+```bash
 gitbook-start -d <directorio>
+```
+```bash
 cd <directorio>
+```
+```bash
 npm install
+```
+```bash
 npm install --save gitbook-start-digitalocean-merquililycony
+```
+```bash
+gulp paquete-ocean
+```
+```bash
 gulp deploy
+```
+```bash
 gulp deploy-digitalocean
+```
+```bash
+gulp instalar-dependencias
+```
+```bash
+gulp run-server
+
 ```
 
 Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean ó el nombre de dominio. El servidor está corriendo en el puerto **8080 con http** y en el **puerto 443 con https**.
