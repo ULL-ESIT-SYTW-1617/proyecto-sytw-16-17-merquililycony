@@ -117,9 +117,6 @@ gulp deploy
 gulp deploy-digitalocean
 ```
 ```bash
-gulp instalar-dependencias
-```
-```bash
 gulp run-server
 
 ```
