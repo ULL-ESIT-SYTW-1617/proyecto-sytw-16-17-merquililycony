@@ -86,12 +86,12 @@ gulp.task('deploy-digitalocean',function(){
 });
 gulp.task('instalar-dependencias',function(){
 
-    ssh_exec('cd /home/src/sytw/; npm install', username@host).pipe(process.stdout);
+    ssh_exec('cd /home/src/sytw/; npm install', username+'@'+host).pipe(process.stdout);
 
 });
 gulp.task('run-server',function(){
 
-  ssh_exec('cd /home/src/sytw/; node app.js', username@host).pipe(process.stdout);
+  ssh_exec('cd /home/src/sytw/; node app.js', username+'@'+host).pipe(process.stdout);
 });
 
 //gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
