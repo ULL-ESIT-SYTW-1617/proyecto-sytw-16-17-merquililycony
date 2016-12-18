@@ -56,8 +56,8 @@ var json_token = JSON.parse(fs.readFileSync('./.gitbook-start/config.json','utf8
 
 var token = json_token.token;
 var usuario_tok = json_token.app.name;
-console.log("Usuario: "+usuario_tok);
-console.log("Token: "+token);
+// console.log("Usuario: "+usuario_tok);
+// console.log("Token: "+token);
 /*
 var json = JSON.parse(fs.readFileSync('../../package.json','utf8'));
 var dir = json.Directorio.nombre_dir; //Utilizar el que está comentado arriba cuando instalemos los paquetes.
