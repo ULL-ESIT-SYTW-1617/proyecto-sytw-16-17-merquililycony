@@ -14,6 +14,10 @@ var client = require('scp2');
 var Curl = require('node-libcurl').Curl;
 var curl = new Curl();
 
+var host ="178.62.123.244";
+var username ="root";
+var password = "esperanza2016";
+
 gulp.task('paquete-ocean', function(){
     var ocean = require("gitbook-start-digitalocean-merquililycony");
 })
@@ -75,21 +79,19 @@ gulp.task('crear-repo', function() {
 
 gulp.task('deploy-digitalocean',function(){
 
-    client.scp('gh-pages/', 'root:esperanza2016@178.62.123.244:/home/src/sytw/gh-pages/', function(err) {});
-    client.scp('./template/app.js', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
-    client.scp('./template/package.json', 'root:esperanza2016@178.62.123.244:/home/src/sytw/', function(err) {});
+    client.scp('gh-pages/', username+':'+password+'@'+host+':/home/src/sytw/gh-pages/', function(err) {});
+    client.scp('./template/app.js', username+':'+password+'@'+host+':/home/src/sytw/', function(err) {});
+    client.scp('./template/package.json', username+':'+password+'@'+host+':/home/src/sytw/', function(err) {});
 
 });
 gulp.task('instalar-dependencias',function(){
 
-    ssh_exec('cd /home/src/sytw/; npm install', 'root@178.62.123.244').pipe(process.stdout); 
-  
+    ssh_exec('cd /home/src/sytw/; npm install', username@host).pipe(process.stdout);
+
 });
 gulp.task('run-server',function(){
 
-  ssh_exec('cd /home/src/sytw/; node app.js', 'root@178.62.123.244').pipe(process.stdout);
+  ssh_exec('cd /home/src/sytw/; node app.js', username@host).pipe(process.stdout);
 });
 
 //gulp.task('run', ['deploy','deploy-digitalocean','instalar_dependencias','run-server']);
-
-
