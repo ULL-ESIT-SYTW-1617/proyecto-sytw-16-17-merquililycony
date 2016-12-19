@@ -115,4 +115,3 @@ gulp.task('run-server', function () {
     .shell(['cd /home/src/sytw/', 'npm install', 'node app.js &'], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 });
-
