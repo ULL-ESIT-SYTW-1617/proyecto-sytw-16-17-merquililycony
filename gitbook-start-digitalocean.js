@@ -26,12 +26,12 @@ fe.copy(path.join(__dirname, '/template', 'gulpfile.js') , path.join('./','gulpf
 });
 
 
-fe.copy(path.join(__dirname, '/template', 'app.js') , path.join('/gh-pages','app.js'), function(err){
+fe.copy(path.join(__dirname, '/template', 'app.js') , path.join('gh-pages','app.js'), function(err){
   if(err){
     return console.error(err);
   }
 });
-fe.copy(path.join(__dirname, '/template', 'package.json') , path.join('/gh-pages','package.json'), function(err){
+fe.copy(path.join(__dirname, '/template', 'package.json') , path.join('gh-pages','package.json'), function(err){
   if(err){
     return console.error(err);
   }
