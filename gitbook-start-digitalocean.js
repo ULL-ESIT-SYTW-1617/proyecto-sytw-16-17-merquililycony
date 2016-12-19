@@ -59,3 +59,4 @@ var dir = json.Directorio.nombre_dir; //nombre directorio del libro
 
 //Armar y guarda URL remota en el fichero package.json
 exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');
+exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+dir+'"}\''); 
