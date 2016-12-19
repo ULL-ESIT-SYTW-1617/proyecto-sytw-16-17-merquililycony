@@ -57,9 +57,5 @@ var usuario_tok = json_token.app.name; //Usuario github
 var json = JSON.parse(fs.readFileSync('./package.json','utf8'));
 var dir = json.Directorio.nombre_dir; //nombre directorio del libro
 
-//Guarda URL remota en el fichero pacjage.json
+//Armar y guarda URL remota en el fichero package.json
 exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"+usuario_tok+"/"+dir+".git"+'\"\'');
-
-//CREAR REPOSITORIO REMOTO EN GITHUB CON EL TOKEN
-exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+dir+'"}\'');
-exec('git init; git remote set-url origin git@github.com:'+usuario_tok+'/'+dir+'.git; git push -u origin master');
