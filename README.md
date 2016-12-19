@@ -94,8 +94,8 @@ cd <directorio>
 npm install
 npm install --save gitbook-start-digitalocean-merquililycony
 gulp paquete-ocean
-gulp push
 gulp deploy
+gulp push
 gulp deploy-digitalocean
 gulp run-server
 ```
