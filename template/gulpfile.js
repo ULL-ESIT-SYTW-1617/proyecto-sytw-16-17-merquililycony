@@ -68,7 +68,7 @@ gulp.task('push', function(){
 
 gulp.task('deploy-digitalocean',function(){
   return gulpSSH
-    .shell(['cd /home/src/sytw/', 'git clone'+url_repo_git], {filePath: 'shell.log'})
+    .shell(['cd /home/src/sytw/', 'git clone '+url_repo_git], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 
 });
