@@ -19,16 +19,15 @@ var password = json.remoteserver.password_remoto;
 var ip = json.remoteserver.ip_remoto;
 var host = json.remoteserver.ruta_remoto;
 var privateKey = json.localserver.privateKey_local;
-//var privateKey = fs.readFileSync(json.localserver.privateKey_local);
 var directorio = json.Directorio.nombre_dir;
 var url_repo_git = json.repository.url;
 
 
 var config = {
-  host: '178.62.123.244',
+  host: `${ip}`,
   port: 22,
-  username: 'root',
-  privateKey: fs.readFileSync('/home/ubuntu/.ssh/id_rsa')
+  username: `${username}`,
+  privateKey: fs.readFileSync(`${privateKey}`)
 }
 
 var gulpSSH = new GulpSSH({

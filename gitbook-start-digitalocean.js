@@ -39,12 +39,12 @@ function checkDirectorySync(directory) {
     var ruta_remoto = readlineSync.question('Introduzca ruta de despliegue del libro en servidor remoto: ');
     var privateKey_local = readlineSync.question('Introduzca ruta de su clave pública de la máquina local: ');
 
-    exec('json -I -f package.json -e \'this.remoteserver.usuario_remoto=\"'+usuario_remoto);
-    exec('json -I -f package.json -e \'this.remoteserver.password_remoto=\"'+password_remoto);
-    exec('json -I -f package.json -e \'this.remoteserver.ip_remoto=\"'+ip_remoto);
-    exec('json -I -f package.json -e \'this.remoteserver.ruta_remoto=\"'+ruta_remoto);
-    exec('json -I -f package.json -e \'this.localserver.privateKey_local=\"'+privateKey_local);
-    //--------------------FIN GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
+    exec('json -I -f package.json -e \'this.remoteserver.usuario_remoto=\"'+usuario_remoto+'\"\'');
+    exec('json -I -f package.json -e \'this.remoteserver.password_remoto=\"'+password_remoto+'\"\'');
+    exec('json -I -f package.json -e \'this.remoteserver.ip_remoto=\"'+ip_remoto+'\"\'');
+    exec('json -I -f package.json -e \'this.remoteserver.ruta_remoto=\"'+ruta_remoto+'\"\'');
+    exec('json -I -f package.json -e \'this.localserver.privateKey_local=\"'+privateKey_local+'\"\'');
+      //--------------------FIN GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
 
 
     var usuario = readlineSync.question('Introduzca el USUARIO de github: ');
