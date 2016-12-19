@@ -14,6 +14,16 @@ var exec = require('child_process').exec;
 var ssh_exec = require('ssh-exec');
 
 
+var username = json.remoteserver.usuario_remoto;
+var password = json.remoteserver.password_remoto;
+var ip = json.remoteserver.ip_remoto;
+var host = json.remoteserver.ruta_remoto;
+var privateKey = json.localserver.privateKey_local;
+//var privateKey = fs.readFileSync(json.localserver.privateKey_local);
+var directorio = json.Directorio.nombre_dir;
+var url_repo_git = json.repository.url;
+
+
 var config = {
   host: '178.62.123.244',
   port: 22,
@@ -25,15 +35,6 @@ var gulpSSH = new GulpSSH({
   ignoreErrors: false,
   sshConfig: config
 })
-
-
-
-var host ="178.62.123.244";
-var username ="root";
-var password = "esperanza2016";
-var privateKey = fs.readFileSync('/home/ubuntu/.ssh/id_rsa');
-var directorio = json.Directorio.nombre_dir;
-var url_repo_git = json.repository.url;
 
 gulp.task('paquete-ocean', function(){
     var ocean = require("gitbook-start-digitalocean-merquililycony");
