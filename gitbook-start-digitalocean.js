@@ -62,4 +62,4 @@ exec('json -I -f package.json -e \'this.repository.url=\"'+"https://github.com/"
 
 //CREAR REPOSITORIO REMOTO EN GITHUB CON EL TOKEN
 exec('curl -u '+"\""+usuario_tok+"\":\""+token+"\" https://api.github.com/user/repos -d "+'\'{"name":"'+dir+'"}\'');
-exec('git remote set-url origin git@github.com:'+usuario_tok+'/'+dir+'.git; git push -u origin master');
+exec('git init; git remote set-url origin git@github.com:'+usuario_tok+'/'+dir+'.git; git push -u origin master');
