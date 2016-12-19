@@ -11,6 +11,6 @@ var fs = require('fs-extra');
 //var hero = require("gitbook-start-heroku-merquililycony");
 
 
-gulp.task('llamada', function(){
+gulp.task('paquete-ocean', function(){
     var ocean = require("gitbook-start-digitalocean-merquililycony");
 })
