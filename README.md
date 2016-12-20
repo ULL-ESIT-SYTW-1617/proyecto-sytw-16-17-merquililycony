@@ -98,7 +98,7 @@ Existen diversos portales en Internet como [https://www.whatsmydns.net/](https:/
 
 # Paso 6: Generar un certificado SSL con Let's Encrypt.
 
-1- Dentro de la máquina remota nos colocamos en el directorio que habíamos elegido anteriormente para el despliegue, clonamos el repositorio de **Let's Encrypt** y nos metemos dentro del mismo.
+1- Dentro de la máquina remota, nos colocamos en el directorio que habíamos elegido anteriormente para el despliegue, clonamos el repositorio de **Let's Encrypt** y nos metemos dentro del mismo.
 
 ```bash
 cd /ruta/de/despliegue/remota
