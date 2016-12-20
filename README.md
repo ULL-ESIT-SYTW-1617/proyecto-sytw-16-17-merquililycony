@@ -121,17 +121,11 @@ ln -s /etc/letsencrypt/live/example.com/fullchain.pem cert.pem
 ln -s /etc/letsencrypt/live/example.com/privkey.pem key.pem
 ```
 
-Sólo nos queda reinicar el servidor para que coja los cambios, lo podemos hacer con el comando **pkill -HUP node** directamente o buscando el proceso con **ps aux | grep node** y matándolo con **kill -9 número_del_proceso**
+Sólo nos queda reinicar el servidor para que coja los cambios. Puede utilizar las tareas **gulp stop-server**, **gulp start-server** ó **gulp restart-server**
 
 ```bash
-pkill -HUP node
+gulp restart-server
 ```
-
-Nos colocamos dentro de la carpeta del proyecto donde está el fichero **app.js** y arrancamos el servidor con
-
-```bash
-node app.js
-``` 
 
 Con esto ya podemos acceder a nuestro libro escribiendo tanto la dirección IP de nuestra máquina en Digital Ocean cómo el nombre de dominio. El servidor está corriendo en el puerto **8080 con http** y en el **puerto 443 con https**.
 

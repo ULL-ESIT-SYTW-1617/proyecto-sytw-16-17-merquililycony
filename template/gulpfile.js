@@ -18,10 +18,10 @@ var username = json.remoteserver.usuario_remoto;
 var password = json.remoteserver.password_remoto;
 var ip = json.remoteserver.ip_remoto;
 var host = json.remoteserver.ruta_remoto;
+var dominio_web = json.remoteserver.dominio_web;
 var privateKey = json.localserver.privateKey_local;
 var directorio = json.Directorio.nombre_dir;
 var url_repo_git = json.repository.url;
-
 
 var config = {
   host: `${ip}`,
@@ -67,14 +67,34 @@ gulp.task('push', function(){
 });
 
 gulp.task('deploy-digitalocean',function(){
-  return gulpSSH
-    .shell(['cd /home/src/sytw/', 'git clone '+url_repo_git], {filePath: 'shell.log'})
+    return gulpSSH
+    .shell(['cd /home/src/sytw/', 'git clone '+url_repo_git,
+            'cd /home/src/sytw/'+directorio+'/template', 'cp app.js ../app.js','cd ..', 'node app.js &'], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 
 });
 
-gulp.task('run-server', function () {
-  return gulpSSH
-    .shell(['cd /home/src/sytw/'+directorio+'/template', 'cp app.js ../app.js','cd ..', 'node app.js &'], {filePath: 'shell.log'})
-    .pipe(gulp.dest('logs'))
+var runSequence = require('run-sequence');
+gulp.task('run', function (cb) {
+  runSequence(['deploy', 'push','deploy-digitalocean'], cb);
 });
+
+gulp.task('stop-server', function () {
+  return gulpSSH
+  .shell(['pkill -HUP node'], {filePath: 'shell.log'})
+  .pipe(gulp.dest('logs'))
+
+});
+
+gulp.task('restart-server', function () {
+  return gulpSSH
+  .shell(['pkill -HUP node','cd '+host+'/'+directorio,'node app.js &'], {filePath: 'shell.log'})
+  .pipe(gulp.dest('logs'))
+});
+
+gulp.task('start-server', function () {
+  return gulpSSH
+  .shell(['cd '+host+'/'+directorio,'node app.js &'], {filePath: 'shell.log'})
+  .pipe(gulp.dest('logs'))
+});
+
