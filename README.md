@@ -82,6 +82,14 @@ Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nues
 
 [http://178.62.123.244:8080](http://178.62.123.244:8080)
 
+Una vez publicado el libro, si desea realizar alguna modificación sobre el mismo, debe acceder al directorio **txt**, actualizar sus archivos de **markdown** y ejecutar los siguientes comandos:
+
+```bash
+gulp deploy
+gulp push
+gulp deploy-update
+```
+
 
 **NOTA:** El **paso 5** y el **paso 6** es opcional. A la finalización de los mismos tendremos un nombre de dominio apuntando a nuestra máquina remota y un **certificado SSL de Let's Encrypt gratis** como se muestra en el siguiente enlance:
 
