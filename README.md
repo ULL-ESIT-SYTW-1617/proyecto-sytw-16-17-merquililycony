@@ -107,14 +107,14 @@ cd letsencrypt
 ```
 
 2- Ejecutamos **sudo -H ./letsencrypt...** donde **example.com** será el nombre del dominio al que le vamos a generar el certificado SSL.
-Salimos del directorio **letsencrypt** y volvemos al directorio anterior donde crearemos un nuevo directorio llamado **certssh** en el que se almacenarán nuestro certificados.
+Salimos del directorio **letsencrypt** y volvemos al directorio anterior donde crearemos un nuevo directorio llamado **certssl** en el que se almacenarán nuestro certificados.
 
 ```bash
 sudo -H ./letsencrypt-auto certonly --standalone --email info@example.com -d example.com
-cd.. ; mkdir certssh ; cd certssh
+cd.. ; mkdir certssl ; cd certssl
 ```
 
-3- Por último crearemos un enlace simbólico de **cert.pem y key.pem** que por defecto están en **/etc/letsencrypt/live/example.com** y lo guardaremos en **/ruta/de/despliegue/remota/certssh**
+3- Por último crearemos un enlace simbólico de **cert.pem y key.pem** que por defecto están en **/etc/letsencrypt/live/example.com** y lo guardaremos en **/ruta/de/despliegue/remota/certssl**
 
 ```bash
 ln -s /etc/letsencrypt/live/example.com/fullchain.pem cert.pem

@@ -9,10 +9,10 @@ var host = json.remoteserver.ruta_remoto; //Ruta remota de despliegue
 
 function checkDirectorySync(directory) {
   try {
-    fs.statSync(directory); //Busca directorio tls
+    fs.statSync(directory); //Busca directorio certssl
 
-    var privateKey  = fs.readFileSync(host+'/certssh/key.pem', 'utf8');
-    var certificate = fs.readFileSync(host+'/certssh/cert.pem', 'utf8');
+    var privateKey  = fs.readFileSync(host+'/certssl/key.pem', 'utf8');
+    var certificate = fs.readFileSync(host+'/certssl/cert.pem', 'utf8');
     var credentials = {key: privateKey, cert: certificate};
 
     app.use(express.static(path.join(__dirname,'gh-pages')));
@@ -35,5 +35,5 @@ function checkDirectorySync(directory) {
   }
 
 }
-checkDirectorySync(host+'/certssh');
+checkDirectorySync(host+'/certssl');
 
