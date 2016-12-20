@@ -34,7 +34,7 @@ function checkDirectorySync(directory) {
     fs.mkdirSync(directory);
     //-----------------------GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
     var usuario_remoto = readlineSync.question('Introduzca su USUARIO del servidor remoto: ');
-    var password_remoto = readlineSync.question('Introduzca su contraseña del servidor remoto: ');
+    var password_remoto = readlineSync.question('Introduzca su contraseña del servidor remoto: ', { hideEchoBack: true });
     var ip_remoto = readlineSync.question('Introduzca la dirección IP del servidor remoto: ');
     var ruta_remoto = readlineSync.question('Introduzca ruta de despliegue del libro en servidor remoto: ');
     var privateKey_local = readlineSync.question('Introduzca ruta de su clave pública de la máquina local: ');
