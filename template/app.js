@@ -4,14 +4,15 @@ var https = require('https');
 var path = require('path');
 var express = require('express');
 var app = express();
-
+var json = require(path.join(__dirname,'package.json'));
+var host = json.remoteserver.ruta_remoto; //Ruta remota de despliegue
 
 function checkDirectorySync(directory) {
   try {
     fs.statSync(directory); //Busca directorio tls
 
-    var privateKey  = fs.readFileSync('../tls/key.pem', 'utf8');
-    var certificate = fs.readFileSync('../tls/cert.pem', 'utf8');
+    var privateKey  = fs.readFileSync(host+'/certssh/key.pem', 'utf8');
+    var certificate = fs.readFileSync(host+'/certssh/cert.pem', 'utf8');
     var credentials = {key: privateKey, cert: certificate};
 
     app.use(express.static(path.join(__dirname,'gh-pages')));
@@ -34,5 +35,5 @@ function checkDirectorySync(directory) {
   }
 
 }
-checkDirectorySync("../tls");
+checkDirectorySync(host+'/certssh');
 
