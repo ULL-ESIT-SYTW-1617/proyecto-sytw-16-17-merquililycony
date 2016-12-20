@@ -64,10 +64,18 @@ cd <directorio>
 npm install
 npm install --save gitbook-start-digitalocean-merquililycony
 gulp paquete-ocean
+```
+
+Al ejecutar **gulp paquete-ocean** se solicitará por pantalla los datos necesarios para realizar el despliegue. A continuación se adjunta una imagen de ejemplo:
+
+
+![imagen](./images/ima6.jpg)
+
+
+```bash
 gulp deploy
 gulp push
 gulp deploy-digitalocean
-gulp run-server
 ```
 
 Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nuestra máquina en Digital Ocean. El servidor está corriendo en el puerto **8080 con http**.
