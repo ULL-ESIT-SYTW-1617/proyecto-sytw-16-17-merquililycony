@@ -98,7 +98,7 @@ Existen diversos portales en Internet como [https://www.whatsmydns.net/](https:/
 
 # Paso 6: Generar un certificado SSL con Let's Encrypt.
 
-1- Dentro de la máquina remota nos colocamos en el directorio que habíamos elegido anteriormente para el despliegue, clonamos el repositorio de **Let's Encrypt** y nos metemos dentro del mismo.
+1- Dentro de la máquina remota, nos colocamos en el directorio que habíamos elegido anteriormente para el despliegue, clonamos el repositorio de **Let's Encrypt** y nos metemos dentro del mismo.
 
 ```bash
 cd /ruta/de/despliegue/remota
@@ -145,11 +145,11 @@ Con esto ya podemos acceder a nuestro libro escribiendo tanto la dirección IP d
 
  * [Enunciado](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/proyectos/sytw/)
 
- **Repositorio GitHuB donde se realizó la práctica**
- * [Repo nueva funcionalidad](https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony)
- * [Repo paquete](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-digitalocean-merquililycony/)
- * [Organización](https://github.com/ULL-ESIT-SYTW-1617/gitbook-start-digitalocean-merquililycony/)
- * [npm](https://www.npmjs.com/package/gitbook-start-digitalocean-merquililycony)
+ **Repositorio GitHuB y NPM donde se realizó el proyecto**
+ 
+ * [Repo paquete principal](https://github.com/Alu0100673647/nuevo-libro)
+ * [Repo plugin despliegue Digital Ocean](https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony)
+ * [Repo npm plugin Digital Ocean](https://www.npmjs.com/package/gitbook-start-digitalocean-merquililycony)
 
  **Página de los autores**
 
