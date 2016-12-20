@@ -71,6 +71,7 @@ Al ejecutar **gulp paquete-ocean** se solicitará por pantalla los datos necesar
 
 ![imagen](./images/ima6.jpg)
 
+Para completar el despliegue, ejecutamos los siguientes comandos:
 
 ```bash
 gulp deploy
@@ -82,7 +83,9 @@ Con esto ya podemos acceder a nuestro libro escribiendo la dirección IP de nues
 
 [http://178.62.123.244:8080](http://178.62.123.244:8080)
 
-Una vez publicado el libro, si desea realizar alguna modificación sobre el mismo, debe acceder al directorio **txt**, actualizar sus archivos de **markdown** y ejecutar los siguientes comandos:
+**NOTA:** Una vez publicado el libro, si desea realizar alguna modificación sobre el mismo, debe acceder al directorio **txt**, actualizar sus archivos de **markdown** y ejecutar los siguientes comandos:
+
+![imagen](./images/ima7.jpg)
 
 ```bash
 gulp deploy
