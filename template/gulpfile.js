@@ -68,16 +68,12 @@ gulp.task('push', function(){
 
 gulp.task('deploy-digitalocean',function(){
     return gulpSSH
-    .shell(['cd /home/src/sytw/', 'git clone '+url_repo_git,
-            'cd /home/src/sytw/'+directorio+'/template', 'cp app.js ../app.js','cd ..', 'node app.js &'], {filePath: 'shell.log'})
+    .shell(['cd '+host, 'git clone '+url_repo_git,
+            'cd '+host+directorio+'/template', 'cp app.js ../app.js','cd ..', 'node app.js &'], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 
 });
 
-var runSequence = require('run-sequence');
-gulp.task('run', function (cb) {
-  runSequence(['deploy', 'push','deploy-digitalocean'], cb);
-});
 
 gulp.task('stop-server', function () {
   return gulpSSH
