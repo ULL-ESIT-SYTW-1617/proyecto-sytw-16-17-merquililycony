@@ -37,7 +37,7 @@ function checkDirectorySync(directory) {
     var password_remoto = readlineSync.question('Introduzca su contraseña del servidor remoto: ', { hideEchoBack: true });
     var ip_remoto = readlineSync.question('Introduzca la dirección IP del servidor remoto: ');
     var ruta_remoto = readlineSync.question('Introduzca ruta de despliegue del libro en servidor remoto: ');
-    var privateKey_local = readlineSync.question('Introduzca ruta de su clave pública de la máquina local: ');
+    var privateKey_local = readlineSync.question('Introduzca ruta de su clave privada de la máquina local: ');
 
     exec('json -I -f package.json -e \'this.remoteserver.usuario_remoto=\"'+usuario_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.password_remoto=\"'+password_remoto+'\"\'');
