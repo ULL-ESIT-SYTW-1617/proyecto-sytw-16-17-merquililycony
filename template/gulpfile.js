@@ -93,8 +93,8 @@ gulp.task('start-ssl', function () {
 
   return gulpSSH
   .shell(['cd '+host,'mkdir certssl','cd certssl','ln -s /etc/letsencrypt/live/'+dominio_web+'/fullchain.pem cert.pem',
-          'ln -s /etc/letsencrypt/live/'+dominio_web+'/privkey.pem key.pem','cd '+host+'/'+directorio+'/template',
-          'pkill -HUP node','cd'+host+'/'+directorio,'node app.js &'], {filePath: 'shell.log'})
+          'ln -s /etc/letsencrypt/live/'+dominio_web+'/privkey.pem key.pem',
+          'pkill -HUP node','cd '+host+'/'+directorio,'node app.js &'], {filePath: 'shell.log'})
   .pipe(gulp.dest('logs'))
 
 });
