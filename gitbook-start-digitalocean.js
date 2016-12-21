@@ -37,12 +37,14 @@ function checkDirectorySync(directory) {
     var password_remoto = readlineSync.question('Introduzca su contraseña del servidor remoto: ', { hideEchoBack: true });
     var ip_remoto = readlineSync.question('Introduzca la dirección IP del servidor remoto: ');
     var ruta_remoto = readlineSync.question('Introduzca ruta de despliegue del libro en servidor remoto: ');
+    var dominio_web = readlineSync.question('Introduzca la URL de su dominio ó pulse Enter si solo va a utilizar la IP: ');
     var privateKey_local = readlineSync.question('Introduzca ruta de su clave privada de la máquina local: ');
 
     exec('json -I -f package.json -e \'this.remoteserver.usuario_remoto=\"'+usuario_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.password_remoto=\"'+password_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.ip_remoto=\"'+ip_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.ruta_remoto=\"'+ruta_remoto+'\"\'');
+    exec('json -I -f package.json -e \'this.remoteserver.dominio_web=\"'+dominio_web+'\"\'');
     exec('json -I -f package.json -e \'this.localserver.privateKey_local=\"'+privateKey_local+'\"\'');
       //--------------------FIN GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
 

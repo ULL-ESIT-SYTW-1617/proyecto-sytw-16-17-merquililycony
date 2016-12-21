@@ -1,6 +1,7 @@
 /*
 * Dependencias
 */
+var run = require('gulp-run');
 var GulpSSH = require('gulp-ssh');
 var gulp = require('gulp');
 var shell = require('gulp-shell');
@@ -82,7 +83,25 @@ gulp.task('deploy-update',function(){
 
 });
 
+gulp.task('clone-letsencrypt', function () {
+  return gulpSSH
+  .shell(['cd '+host,'git clone https://github.com/letsencrypt/letsencrypt'], {filePath: 'shell.log'})
+  .pipe(gulp.dest('logs'))
 
+});
+
+
+gulp.task('start-ssl', function () {
+
+  return gulpSSH
+  .shell(['cd '+host,'mkdir certssl','cd certssl','ln -s /etc/letsencrypt/live/'+dominio_web+'/fullchain.pem cert.pem',
+          'ln -s /etc/letsencrypt/live/'+dominio_web+'/privkey.pem key.pem','cd '+host+'/'+directorio+'/template',
+          'pkill -HUP node','cp app.js ../app.js','cd ..','node app.js &'], {filePath: 'shell.log'})
+  .pipe(gulp.dest('logs'))
+
+});
+
+ 
 gulp.task('stop-server', function () {
   return gulpSSH
   .shell(['pkill -HUP node'], {filePath: 'shell.log'})
@@ -101,4 +120,3 @@ gulp.task('start-server', function () {
   .shell(['cd '+host+'/'+directorio,'node app.js &'], {filePath: 'shell.log'})
   .pipe(gulp.dest('logs'))
 });
-
