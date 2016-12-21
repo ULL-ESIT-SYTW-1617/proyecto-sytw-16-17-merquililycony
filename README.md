@@ -47,6 +47,7 @@ cat ~/.ssh/*.pub | ssh root@178.62.123.244 'umask 077; mkdir -p .ssh; cat >> .ss
 Instalamos **NODEJS**, **NPM** y **GULP** en nuestro servidor remoto
 
 ```bash
+ssh root@178.62.123.244
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y build-essential
@@ -55,10 +56,10 @@ sudo npm install --global gulp-cli
 
 # Paso 4: Crear y desplegar el libro.
 
-Nos colocamos en nuestra máquina local y ejecutamos los siguientes comandos:
+Nos colocamos en nuestra máquina local con **exit** y ejecutamos los siguientes comandos:
 
 ```bash
-npm install -g nuevo-libro-merquililycony
+sudo npm install -g nuevo-libro-merquililycony
 gitbook-start -d <directorio>
 cd <directorio>
 npm install
