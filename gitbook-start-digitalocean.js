@@ -39,7 +39,7 @@ function checkDirectorySync(directory) {
   } catch(e) {
     fs.mkdirSync(directory);
     //-----------------------GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
-    var usuario_remoto = readlineSync.question('Introduzca su USUARIO del servidor remoto: ');
+   /* var usuario_remoto = readlineSync.question('Introduzca su USUARIO del servidor remoto: ');
     var password_remoto = readlineSync.question('Introduzca su contraseña del servidor remoto: ', { hideEchoBack: true });
     var ip_remoto = readlineSync.question('Introduzca la dirección IP del servidor remoto: ');
     var ruta_remoto = readlineSync.question('Introduzca ruta de despliegue del libro en servidor remoto: ');
@@ -51,7 +51,7 @@ function checkDirectorySync(directory) {
     exec('json -I -f package.json -e \'this.remoteserver.ip_remoto=\"'+ip_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.ruta_remoto=\"'+ruta_remoto+'\"\'');
     exec('json -I -f package.json -e \'this.remoteserver.dominio_web=\"'+dominio_web+'\"\'');
-    exec('json -I -f package.json -e \'this.localserver.privateKey_local=\"'+privateKey_local+'\"\'');
+    exec('json -I -f package.json -e \'this.localserver.privateKey_local=\"'+privateKey_local+'\"\'');*/
       //--------------------FIN GUARDO DATOS DE USUARIO REMOTO EN PACKAGE.JSON--------------------------------
 
 
