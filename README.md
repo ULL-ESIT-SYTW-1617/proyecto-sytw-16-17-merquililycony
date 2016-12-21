@@ -58,24 +58,29 @@ sudo npm install --global gulp-cli
 
 Nos colocamos en nuestra máquina local con **exit** y ejecutamos los siguientes comandos:
 
-```bash
+
 exit
 sudo npm install -g nuevo-libro-merquililycony
 gitbook-start -d <directorio>
 cd <directorio>
 npm install
 npm install --save gitbook-start-digitalocean-merquililycony
-gulp paquete-ocean
 ```
 
-Al ejecutar **gulp paquete-ocean** se solicitará por pantalla los datos necesarios para realizar el despliegue. A continuación se adjunta una imagen de ejemplo:
+Entramos en el libro que hemos creado, abrimos el fichero **package.json** y editamos los campos de la imagen de ejemplo que se muestra a continuación con los de nuestro servidor.
 
-
+*privateKey_local: clave privada de nuestra máquina local, la encontramos dentro del directorio **~/.ssh**.
+*usuario_remoto: Nombre del usuario de la máquina remota.
+password_remoto: Contraseña del usuario de la máquina remota.
+ip_remoto: IP de la máquina remota.
+dominio_web: **OPCIONAL** Nombre de dominio para tu libro.
+ruta_remoto: Ruta donde se desplegará tu libro en el servidor remoto.
 ![imagen](./images/ima10.jpg)
 
 Para completar el despliegue, ejecutamos los siguientes comandos:
 
 ```bash
+gulp paquete-ocean
 gulp deploy
 gulp push
 gulp deploy-digitalocean
