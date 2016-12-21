@@ -165,9 +165,10 @@ Para acceder al libro podemos escribir tanto la dirección IP de nuestra máquin
 
  **Repositorio GitHuB y NPM donde se realizó el proyecto**
  
- * [Repo paquete principal](https://github.com/Alu0100673647/nuevo-libro)
- * [Repo plugin despliegue Digital Ocean](https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony)
- * [Repo npm plugin Digital Ocean](https://www.npmjs.com/package/gitbook-start-digitalocean-merquililycony)
+ * [Repo paquete principal nuevo-libro](https://github.com/Alu0100673647/nuevo-libro)
+ * [Paquete npm nuevo-libro](https://www.npmjs.com/package/nuevo-libro-merquililycony)
+ * [Repo donde se realizó despliegue Digital Ocean](https://github.com/ULL-ESIT-SYTW-1617/proyecto-sytw-16-17-merquililycony)
+ * [Paquete npm plugin Digital Ocean](https://www.npmjs.com/package/gitbook-start-digitalocean-merquililycony)
 
  **Página de los autores**
 
