@@ -58,7 +58,7 @@ sudo npm install --global gulp-cli
 
 Nos colocamos en nuestra máquina local con **exit** y ejecutamos los siguientes comandos:
 
-
+```bash
 exit
 sudo npm install -g nuevo-libro-merquililycony
 gitbook-start -d <directorio>
