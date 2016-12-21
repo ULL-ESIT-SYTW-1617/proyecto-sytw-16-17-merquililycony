@@ -69,16 +69,14 @@ gulp.task('push', function(){
 
 gulp.task('deploy-digitalocean',function(){
     return gulpSSH
-    .shell(['cd '+host, 'git clone '+url_repo_git,
-            'cd '+host+'/'+directorio+'/template', 'cp app.js ../app.js','cd ..','pkill -HUP node', 'node app.js &'], {filePath: 'shell.log'})
+    .shell(['cd '+host, 'git clone '+url_repo_git,'cd '+directorio,'pkill -HUP node', 'node app.js &'], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 
 });
 
 gulp.task('deploy-update',function(){
     return gulpSSH
-    .shell(['cd '+host, 'git clone '+url_repo_git,
-            'cd '+host+'/'+directorio,'git pull','pkill -HUP node', 'node app.js &'], {filePath: 'shell.log'})
+    .shell(['cd '+host+'/'+directorio,'git pull','pkill -HUP node', 'node app.js &'], {filePath: 'shell.log'})
     .pipe(gulp.dest('logs'))
 
 });

@@ -25,6 +25,12 @@ fe.copy(path.join(__dirname, '/template', 'gulpfile.js') , path.join('./','gulpf
   }
 });
 
+fe.copy(path.join(__dirname, '/template', 'app.js') , path.join('./','app.js'), function(err){
+  if(err){
+    return console.error(err);
+  }
+});
+
 //////////////////////////// Comprobacion si existe fichero oculto ///////////////////////////
 
 function checkDirectorySync(directory) {
