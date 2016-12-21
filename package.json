@@ -1,7 +1,7 @@
 {
   "name": "gitbook-start-digitalocean-merquililycony",
-  "version": "1.4.4",
-  "description": "Crea la carpeta undefined",
+  "version": "1.4.5",
+  "description": "Despiega un libro y crea un certificado SSL",
   "main": "gitbook-start-digitalocean",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
