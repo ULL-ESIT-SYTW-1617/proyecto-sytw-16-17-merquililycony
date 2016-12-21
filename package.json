@@ -1,6 +1,6 @@
 {
   "name": "gitbook-start-digitalocean-merquililycony",
-  "version": "1.4.7",
+  "version": "1.4.10",
   "description": "Despiega un libro y crea un certificado SSL",
   "main": "gitbook-start-digitalocean",
   "scripts": {
