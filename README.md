@@ -138,23 +138,18 @@ cd /home/letsencrypt
 sudo -H ./letsencrypt-auto certonly --standalone --email info@example.com -d example.com
 ```
 
-3- Por último volvemos a la máquina local con **exit** y escribimos **gulp start-ssl**
+![imagen](./images/ima5.jpg)
+
+
+3- Por último volvemos a la máquina local con **exit** y escribimos **gulp start-ssl**,esto creará unos enlaces simbólicos de los certificados y reiniciará el servidor.
 
 
 ```bash
 exit
 gulp start-ssl
-ln -s /etc/letsencrypt/live/example.com/fullchain.pem cert.pem
-ln -s /etc/letsencrypt/live/example.com/privkey.pem key.pem
 ```
 
-Sólo nos queda reinicar el servidor para que coja los cambios. Puede utilizar las tareas **gulp stop-server**, **gulp start-server** ó **gulp restart-server**
-
-```bash
-gulp restart-server
-```
-
-Con esto ya podemos acceder a nuestro libro escribiendo tanto la dirección IP de nuestra máquina en Digital Ocean cómo el nombre de dominio. El servidor está corriendo en el puerto **8080 con http** y en el **puerto 443 con https**.
+Para acceder al libro podemos escribir tanto la dirección IP de nuestra máquina en Digital Ocean cómo el nombre de dominio. El servidor está corriendo en el puerto **8080 con http** y en el **puerto 443 con https**.
 
 [http://178.62.123.244:8080](http://178.62.123.244:8080)
 
