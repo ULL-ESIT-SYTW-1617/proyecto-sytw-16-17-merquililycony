@@ -138,7 +138,7 @@ cd /home/letsencrypt
 sudo -H ./letsencrypt-auto certonly --standalone --email info@example.com -d example.com
 ```
 
-![imagen](./images/ima5.jpg)
+![imagen](./images/ima8.jpg)
 
 
 3- Por último volvemos a la máquina local con **exit** y escribimos **gulp start-ssl**,esto creará unos enlaces simbólicos de los certificados y reiniciará el servidor.
