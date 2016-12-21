@@ -71,7 +71,7 @@ gulp paquete-ocean
 Al ejecutar **gulp paquete-ocean** se solicitará por pantalla los datos necesarios para realizar el despliegue. A continuación se adjunta una imagen de ejemplo:
 
 
-![imagen](./images/ima9.jpg)
+![imagen](./images/ima10.jpg)
 
 Para completar el despliegue, ejecutamos los siguientes comandos:
 
