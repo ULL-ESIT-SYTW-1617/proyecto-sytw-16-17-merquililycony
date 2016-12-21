@@ -71,10 +71,15 @@ Entramos en el libro que hemos creado, abrimos el fichero **package.json** y edi
 
 
 **privateKey_local:** Clave privada de nuestra máquina local, la encontramos dentro del directorio **~/.ssh**.
+
 **usuario_remoto:** Nombre del usuario de la máquina remota.
+
 **password_remoto:** Contraseña del usuario de la máquina remota.
+
 **ip_remoto: IP:** de la máquina remota.
+
 **dominio_web:** **OPCIONAL** Nombre de dominio para tu libro.
+
 **ruta_remoto:** Ruta donde se desplegará tu libro en el servidor remoto.
 
 
